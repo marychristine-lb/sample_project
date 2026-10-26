@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'screens/report_form_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -25,6 +27,12 @@ final GoRouter _router = GoRouter(
       path: '/dashboard',
       builder: (BuildContext context, GoRouterState state) {
         return const DashboardScreen();
+      },
+    ),
+    GoRoute(
+      path: '/report',
+      builder: (BuildContext context, GoRouterState state) {
+        return const ReportFormScreen();
       },
     ),
   ],
@@ -110,6 +118,11 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () => context.go('/dashboard'),
                 icon: const Icon(Icons.dashboard),
                 label: const Text('Go to Dashboard'),
+              ),
+              ElevatedButton.icon(
+                onPressed: () => context.go('/report'),
+                icon: const Icon(Icons.report),
+                label: const Text('Go to Report Form'),
               ),
             ],
           ),
